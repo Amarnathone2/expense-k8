@@ -120,13 +120,13 @@ spec:
       containers:
       - name: frontend
         image: 8801776144/frontend:v1.0
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "150m"
-            memory: "256Mi"
+        # resources:
+        #   requests:
+        #     cpu: "100m"
+        #     memory: "128Mi"
+        #   limits:
+        #     cpu: "150m"
+        #     memory: "256Mi"
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
@@ -150,7 +150,7 @@ metadata:
   name: frontend
   namespace: expense
 spec:
-  #type: LoadBalancer
+  type: LoadBalancer
   selector:
     component: frontend
     project: expense
