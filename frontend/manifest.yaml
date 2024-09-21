@@ -120,21 +120,21 @@ spec:
       containers:
       - name: frontend
         image: 8801776144/frontend:v1.0
-        # resources:
-        #   requests:
-        #     cpu: "100m"
-        #     memory: "128Mi"
-        #   limits:
-        #     cpu: "150m"
-        #     memory: "256Mi"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "150m"
+            memory: "256Mi"
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
-        # envFrom:
-        # - configMapRef:
-        #     name: frontend
+        envFrom:
+        - configMapRef:
+            name: frontend
       volumes:
       - name: nginx-conf
         configMap:
